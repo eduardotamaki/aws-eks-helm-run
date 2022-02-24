@@ -7,7 +7,7 @@ Run a helm command against an AWS EKS cluster.
 Add the following snippet to the script section of your `bitbucket-pipelines.yml` file:
 
 ```yaml
-- pipe: atlassian/aws-eks-kubectl-run:2.2.0
+- pipe: docker://eduardotamaki/aws-pipelines-helm:0.0.1
   variables:
     AWS_ACCESS_KEY_ID: '<string>' # Optional if already defined in the context.
     AWS_SECRET_ACCESS_KEY: '<string>' # Optional if already defined in the context.
