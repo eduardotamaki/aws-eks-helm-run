@@ -1,0 +1,28 @@
+name: AWS EKS helm run
+image: eduardotamaki/aws-eks-helm-run:0.0.1
+description: Execute a helm command on your Amazon EKS (Elastic Kubernetes Service) cluster.
+category: Deployment
+variables:
+  - name: AWS_ACCESS_KEY_ID
+    default: "$AWS_ACCESS_KEY_ID"
+  - name: AWS_SECRET_ACCESS_KEY
+    default: "$AWS_SECRET_ACCESS_KEY"
+  - name: AWS_DEFAULT_REGION
+    default: "$AWS_DEFAULT_REGION"
+  - name: CLUSTER_NAME
+    default: "$CLUSTER_NAME"
+  - name: HELM_COMMAND
+    default: "$HELM_COMMAND"
+repository: https://bitbucket.org/atlassian/aws-eks-kubectl-run
+vendor:
+  name: Amazon
+  website: https://aws.amazon.com/
+maintainer:
+  name: Atlassian
+  website: https://www.atlassian.com/
+tags:
+    - deployment
+    - kubernetes
+    - aws
+    - eks
+    - helm
