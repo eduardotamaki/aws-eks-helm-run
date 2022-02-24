@@ -1,7 +1,7 @@
 FROM python:3.8-slim-buster as build
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-COPY pipe/ requirements.txt LICENSE.txt pipe.yml README.md /
+COPY pipe/ requirements.txt pipe.yml /
 RUN apt-get update && apt-get install --no-install-recommends -y \
       apt-transport-https=1.8.* \
       gnupg=2.* \
@@ -38,12 +38,12 @@ RUN ./aws/install && rm -rf aws
 COPY --from=build /root/.local /root/.local
 # copy project files
 COPY --from=build pipe.py /
-COPY --from=build LICENSE.txt pipe.yml README.md /
+COPY --from=build pipe.yml /
 
 ENV PATH=/root/.local/bin:$PATH
 
 
 COPY pipe /
-COPY LICENSE.txt pipe.yml README.md /
+COPY pipe.yml /
 
 ENTRYPOINT ["python", "/pipe.py"]
